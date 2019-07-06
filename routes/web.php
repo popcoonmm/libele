@@ -11,12 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ Route::get('/', function () {
+     return view('welcome');
+ });
 Route::group(['prefix' => 'admin'], function() {
     Route::get('menu/create','Admin\MenuController@add');
     Route::get('menu/create', 'Admin\MenuController@add');
     Route::post('menu/create', 'Admin\MenuController@create');
+    // Route::post('menu/create', 'Admin\MenuController@post');
+    Route::get('menu/edit', 'Admin\MenuController@edit'); // 追記
+    Route::post('menu/edit', 'Admin\MenuController@update');
+    Route::get('menu/delete','Admin\MenuController@delete');
     Route::get('menu', 'Admin\MenuController@index');
+   
 });
+Route::get('/', 'MenuController@index');

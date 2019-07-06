@@ -5,14 +5,17 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Menu;
+
 class MenuController extends Controller
 {
     public function add()
     {
+      //\Debugbar::info("aa");
         return view('admin.menu.create');
     }
     public function create(Request $request)
   {
+    
       $this->validate($request, Menu::$rules);
 
       $menu = new Menu;
@@ -26,6 +29,7 @@ class MenuController extends Controller
           $menu->image_path = null;
       }
 
+
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
       // フォームから送信されてきたimageを削除する
@@ -35,8 +39,53 @@ class MenuController extends Controller
       $menu->fill($form);
       $menu->save();
       
-      
-      
-      return redirect('admin/menu/create');
+       return redirect('admin/menu/create');
+  }  
+   public function index(Request $request)
+  {
+      $cond_item = $request->cond_title;
+      if ($cond_item!= '') {
+          // 検索されたら検索結果を取得する
+          $posts = Menu::where('item', $cond_item)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = Menu::all();
+      }
+      return view('admin.menu.index', ['posts' => $posts, 'cond_item' => $cond_item]);
+  }
+  public function edit(Request $request)
+  {
+    $menu = Menu::find($request->id);
+    if (empty($menu)) {
+      abort(404);
+    }
+    return view('admin.menu.edit',['menu_form' => $menu]);
+  }
+  public function update(Request $request)
+  {
+    $this->validate($request,Menu::$rules);
+    $menu = Menu::find($request->id);
+    $menu_form = $request->all();
+    if (isset($menu_form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $menu->image_path = basename($path);
+        unset($menu_form['image']);
+      } elseif (isset($request->remove)) {
+        $menu->image_path = null;
+        unset($menu_form['remove']);
+    unset($menu_form['_token']);
+      }
+    // $menu->fill($menu_form);
+    // $menu->save();
+    $menu->fill($menu_form)->save();
+    return redirect('admin/menu');
+  }
+  public function delete(Request $request)
+  {
+      // 該当するNews Modelを取得
+      $menu = Menu::find($request->id);
+      // 削除する
+      $menu->delete();
+      return redirect('admin/menu/');
   }  
 }

@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">商品名</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                            <input type="text" class="form-control" name="cond_item" value="{{ $cond_item }}">
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -31,18 +31,39 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
-                                <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
+                                <th width="5%">ID</th>
+                                <th width="15%">商品名</th>
+                                <th width="15%">値段</th>
+                                <th width="5%">ア</th>
+                                <th width="5%">レ</th>
+                                <th width="5%">ル</th>
+                                <th width="5%">ギ</th>
+                                <th width="5%">ー</th>
+                                <th width="20%">商品紹介</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $menu)
                                 <tr>
-                                    <th>{{ $news->id }}</th>
-                                    <td>{{ str_limit($menu->title, 100) }}</td>
-                                    <td>{{ str_limit($menu->body, 250) }}</td>
-                                </tr>
+                                    <th>{{ $menu->id }}</th>
+                                    <td>{{ str_limit($menu->item, 10) }}</td>
+                                    <td>{{ str_limit($menu->price, 10) }}</td>
+                                    <td>{{ str_limit($menu->allergy_egg, 5) }}</td>
+                                    <td>{{ str_limit($menu->allergy_milk, 5) }}</td>
+                                    <td>{{ str_limit($menu->allergy_wheat, 5) }}</td>
+                                    <td>{{ str_limit($menu->allergy_nuts, 5) }}</td>
+                                    <td>{{ str_limit($menu->allergy_fruit, 5) }}</td>
+                                    <td>{{ str_limit($menu->description, 20) }}</td>
+                                    
+                         <td>
+                            <div>
+                                <a href="{{ action('Admin\MenuController@edit', ['id' => $menu->id]) }}">編集</a>
+                            </div>
+                            <div>
+                                <a href="{{ action('Admin\MenuController@delete', ['id' => $menu->id]) }}">削除</a>
+                                        </div>
+                         </td>
+                    </tr>
                             @endforeach
                         </tbody>
                     </table>
