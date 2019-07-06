@@ -60,11 +60,11 @@
         @endif
         <hr color="#c0c0c0">
         <div class="row">
-            <div class="posts col-md-8 mx-auto mt-3">
+            <div class="col-md-12 mx-auto mt-1">
                 @foreach($posts as $post)
-                    <div class="post">
-                        <div class="row">
-                            <div class="text col-md-6">
+                    <div class="menu">
+                    
+                            <div class="menutext col-md-4">
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
@@ -93,11 +93,12 @@
                                 <div class="description mt-3">
                                     {{ str_limit($post->description, 300) }}
                                 </div>
-                            </div>
-                            <div class="row">
+                        
+                            <div class="menu-image">
                                 @if ($post->image_path)
-                                    <img src="{{ secure_asset('storage/image/' . $post->image_path) }}">
+                                    <img src="{{ secure_asset('storage/image/' . $post->image_path) }}"class="aligncenter" />
                                 @endif
+                                
                             </div>
                         </div>
                     </div>

@@ -68,7 +68,7 @@
                        <input type="hidden" name="id" value="{{$menu_form->id }}">
 
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="更新">
+                    <input type="submit" class="btn-secondary" value="更新">
                     
                 </form>
             </div>

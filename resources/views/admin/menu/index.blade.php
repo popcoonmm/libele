@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('Admin\MenuController@add') }}" role="button" class="btn btn-primary">Newmenu</a>
+                <a href="{{ action('Admin\MenuController@add') }}" role="button" class="btn-outline-dark";>Newmenu</a>
             </div>
             <div class="col-md-8">
                 <form action="{{ action('Admin\MenuController@index') }}" method="get">
@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="検索">
+                            <input type="submit" class="btn-secondary " value="検索">
                         </div>
                     </div>
                 </form>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="list-menu col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-dark">
+                    <table class="table table-outline-secondary">
                         <thead>
                             <tr>
                                 <th width="5%">ID</th>
@@ -57,10 +57,10 @@
                                     
                          <td>
                             <div>
-                                <a href="{{ action('Admin\MenuController@edit', ['id' => $menu->id]) }}">編集</a>
+                                <a href="{{ action('Admin\MenuController@edit', ['id' => $menu->id]) }}" role="button" class="btn-secondary">編集</a>
                             </div>
                             <div>
-                                <a href="{{ action('Admin\MenuController@delete', ['id' => $menu->id]) }}">削除</a>
+                                <a href="{{ action('Admin\MenuController@delete', ['id' => $menu->id]) }}" role="button" class="btn-secondary">削除</a>
                                         </div>
                          </td>
                     </tr>
