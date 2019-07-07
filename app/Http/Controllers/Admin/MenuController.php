@@ -28,30 +28,31 @@ class MenuController extends Controller
       } else {
           $menu->image_path = null;
       }
-
-
+      
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
       // フォームから送信されてきたimageを削除する
       unset($form['image']);
-
+   
+      // $menu->timestamps = false;    // 追記
       // データベースに保存する
       $menu->fill($form);
       $menu->save();
       
-       return redirect('admin/menu/create');
+      return redirect('admin/menu');
   }  
    public function index(Request $request)
   {
       $cond_item = $request->cond_title;
       if ($cond_item!= '') {
           // 検索されたら検索結果を取得する
-          $posts = Menu::where('item', $cond_item)->get();
+          $menu = Menu::where('item', $cond_item)->get();
       } else {
           // それ以外はすべてのニュースを取得する
-          $posts = Menu::all();
+          $menu = Menu::all();
       }
-      return view('admin.menu.index', ['posts' => $posts, 'cond_item' => $cond_item]);
+
+      return view('admin.menu.index', ['menu' => $menu, 'cond_item' => $cond_item]);
   }
   public function edit(Request $request)
   {

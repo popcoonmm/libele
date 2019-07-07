@@ -24,7 +24,7 @@ class CreateMenusTable extends Migration
             $table->string('allergy_fruit')->nullable(); 
             $table->string('description');
             $table->string('image_path')->nullable(); 
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

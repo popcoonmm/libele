@@ -37,11 +37,11 @@
                      <div class="form-group row">
                         <lable class="col-md-2" for="allergy">アレルギー</lable>
                         <div class="col-md-10">
-                            <input type="checkbox" name="allergy_egg" value="鶏卵">鶏卵
-                            <input type="checkbox" name="allergy_milk" value="乳">乳
-                            <input type="checkbox" name="allergy_wheat" value="小麦">小麦
-                            <input type="checkbox" name="allergy_nuts" value="ナッツ類">ナッツ類
-                           <input type="checkbox" name="allergy_fruit" value="果物">果物
+                            <input type="checkbox" name="allergy_egg" value="鶏卵" id="allergy_egg"><label for="allergy_egg">鶏卵</label>
+                            <input type="checkbox" name="allergy_milk" value="乳" id="allergy_milk"><label for="allergy_milk">乳</label>
+                            <input type="checkbox" name="allergy_wheat" value="小麦" id="allergy_wheat"><label for="allergy_wheat">小麦</label>
+                            <input type="checkbox" name="allergy_nuts" value="ナッツ類" id="allergy_nuts"><label for="allergy_nuts">ナッツ類</label>
+                           <input type="checkbox" name="allergy_fruit" value="果物" id="allergy_fruit"><label for="allergy_fruit">果物</label>
                         </div>
                     </div>
                     

@@ -34,26 +34,23 @@
                                 <th width="5%">ID</th>
                                 <th width="15%">商品名</th>
                                 <th width="15%">値段</th>
-                                <th width="5%">ア</th>
-                                <th width="5%">レ</th>
-                                <th width="5%">ル</th>
-                                <th width="5%">ギ</th>
-                                <th width="5%">ー</th>
+                                <th width="20%">アレルギー</th>
                                 <th width="20%">商品紹介</th>
+                                <th width="10%">商品画像</th>
+                                <th eidth="20%">編集</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $menu)
+                            @foreach($menu as $menu)
                                 <tr>
                                     <th>{{ $menu->id }}</th>
                                     <td>{{ str_limit($menu->item, 10) }}</td>
                                     <td>{{ str_limit($menu->price, 10) }}</td>
-                                    <td>{{ str_limit($menu->allergy_egg, 5) }}</td>
-                                    <td>{{ str_limit($menu->allergy_milk, 5) }}</td>
-                                    <td>{{ str_limit($menu->allergy_wheat, 5) }}</td>
-                                    <td>{{ str_limit($menu->allergy_nuts, 5) }}</td>
-                                    <td>{{ str_limit($menu->allergy_fruit, 5) }}</td>
+                                    <td>
+                                      <span>{{ $menu->allergies() }}</span>
+                                    </td>
                                     <td>{{ str_limit($menu->description, 20) }}</td>
+                                    <td><img src="{{ asset('storage/image/'.$menu->image_path) }}" width="50" height="50"></td>
                                     
                          <td>
                             <div>

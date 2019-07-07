@@ -15,5 +15,25 @@ class Menu extends Model
        // 'allergy' => 'required',
         'description' => 'required',
     );
-   
+   public function allergies(){
+       $allergies = "";
+       $split_str = " ,";
+       if ($this->allergy_egg){
+           $allergies .= $this->allergy_egg . $split_str;
+       }
+       if ($this->allergy_milk){
+           $allergies .= $this->allergy_milk . $split_str;
+       }
+       if ($this->allergy_wheat){
+           $allergies .= $this->allergy_wheat . $split_str;
+       }
+       if ($this->allergy_nuts){
+           $allergies .= $this->allergy_nuts . $split_str;
+       }
+       if ($this->allergy_fruit){
+           $allergies .= $this->allergy_fruit . $split_str;
+       }
+      $allergies = rtrim($allergies,$split_str);
+      return $allergies;
+   }
 }
