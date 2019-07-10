@@ -15,6 +15,7 @@ class MenuController extends Controller
         // if ($cond_item != '') {
         //     $menu = Menu::where('item', $cond_item).orderBy('updated_at', 'desc')->get();
         // } else {
+        
             $menu= Menu::all()->sortBy('updated_at');
         // }
 

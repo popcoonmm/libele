@@ -1,15 +1,5 @@
-body {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #c9caca;
-  color: #fff;
-}
-
-img {
-  width: 920px;
-}
-
-h5 .modal-title {
-  color: gray;
+.top-ground {
+  background-color: #55acee;
+  color: #239b76;
 }
 

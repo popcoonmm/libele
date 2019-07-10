@@ -1,10 +1,21 @@
-@extends('layouts.front')
-@section('content')
-        <hr style="color:#c0c0c0;">
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+      <title>メニュー</title>
+  </head>
+  <body>
+    <header>
+      <div class="top-ground">
           @foreach($menu as $menu)
-                    <!--<div class="date">-->
-                        <!--{{ $menu->updated_at->format('Y年m月d日') }}-->
-                    <!--</div>-->
+                    <div class="date">
+                        {{ $menu->updated_at->format('Y年m月d日') }}
+                    </div>
                     <div class="item">
                         {{ str_limit($menu->item, 150) }}
                     </div>
@@ -18,6 +29,7 @@
                     <div class="description mt-3">
                         {{ str_limit($menu->description, 300) }}
                     </div>
+                     
            
                     
                     <!-- Button trigger modal -->
@@ -36,7 +48,7 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                <div class="menu-image">
+                  <div class="menu-image">
                                 @if ($menu->image_path)
                                     <img src="{{ secure_asset('storage/image/' . $menu->image_path) }}"class="aligncenter" style="width:100%;" />
                                 @endif
@@ -49,7 +61,9 @@
                         </div>
                       </div>
                     </div>
-                    <hr color="#c0c0c0">
+                    
                 @endforeach
-            </div>
-@endsection
+        </div>
+    </header>
+  </body>
+</html>

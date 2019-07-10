@@ -1,10 +1,16 @@
-@extends('layouts.admin')
-@section('title', 'Menu')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+      <title>メニュー編集</title>
+  </head>   
     <div class="container">
         <div class="row">
-            <h2>Menu</h2>
+            <h1>Menu</h1>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -67,5 +73,8 @@
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

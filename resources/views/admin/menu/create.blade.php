@@ -1,18 +1,20 @@
-
-{{-- layouts/admin.blade.phpを読み込む --}}
-@extends('layouts.admin')
-
-
-{{-- admin.blade.phpの@yield('title')に'メニューの新規作成'を埋め込む --}}
-@section('title', 'メニューの新規作成')
-
-{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
-@section('content')
-    <div class="container">
-        <div class="row">
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
+      <title>メニューの新規作製</title>
+  </head>   
+   <body>
+     <div id ="app">
+       <div class="cotainer">
+         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>Newmenu</h2>
-                <form action="{{ action('Admin\MenuController@create') }}" method="post" enctype="multipart/form-data">
+             <h1>Newmenu</h1>
+      <form action="{{ action('Admin\MenuController@create') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -64,9 +66,11 @@
                     {{ csrf_field() }}
                     <input type="submit"class="btn-secondary" value="更新">
                     
-                    
-                </form>
-            </div>
+                  
+            </form>
+           </div>
+          </div>
         </div>
-    </div>
-@endsection
+      </div>
+   </body>
+</html>
