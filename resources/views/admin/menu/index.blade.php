@@ -10,7 +10,7 @@
   </head>   
     <div class="container">
         <div class="row">
-            <h1>Menu</h1>
+            <h1 class="header-logo">Menu</h1>
         </div>
         <div class="row">
             <div class="col-md-4">
