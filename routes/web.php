@@ -23,6 +23,12 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('menu/edit', 'Admin\MenuController@update');
     Route::get('menu/delete','Admin\MenuController@delete');
     Route::get('menu', 'Admin\MenuController@index');
+  
+    // Route::get('carts', 'CartController@index');
+     
    
 });
 Route::get('/', 'MenuController@index');
+
+Route::get('reserves/index','ReserveController@index');
+Route::post('reserves/create','ReserveController@create');

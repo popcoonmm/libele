@@ -10,7 +10,7 @@ class MenuController extends Controller
 {
     public function add()
     {
-      //\Debugbar::info("aa");
+      
         return view('admin.menu.create');
     }
     public function create(Request $request)
@@ -34,6 +34,7 @@ class MenuController extends Controller
       // フォームから送信されてきたimageを削除する
       unset($form['image']);
    
+      
       // $menu->timestamps = false;    // 追記
       // データベースに保存する
       $menu->fill($form);
