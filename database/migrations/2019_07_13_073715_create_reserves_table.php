@@ -19,6 +19,11 @@ class CreateReservesTable extends Migration
             $table->string('users_number')->nullable(); //お客様番号
             $table->string('quantity'); //個数
             $table->string('menu_id'); //商品の処理番号
+            //追加
+            $table->string('item');
+            $table->string('price');
+            $table->string('description');
+        
             $table->timestamps();
         });
     }

@@ -58,9 +58,9 @@ class MenuController extends Controller
   public function edit(Request $request)
   {
     $menu = Menu::find($request->id);
-    if (empty($menu)) {
+    if (empty($reserve)) {
       abort(404);
-    }
+  }
     return view('admin.menu.edit',['menu_form' => $menu]);
   }
   public function update(Request $request)

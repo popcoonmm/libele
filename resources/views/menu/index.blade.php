@@ -22,7 +22,7 @@
       </div>
     </header>
       <div class="menu-ground">
-          @foreach($menu as $menu)
+          @foreach($menus as $menu)
           <div class="menu">
           <div class="menu-image">
            @if ($menu->image_path)
@@ -57,7 +57,8 @@
                    {{ csrf_field() }}
                    <!--IDのタグをPOSTで一緒に送るためのタグ-->
                    <input type="hidden" name="menu_id" value="{{$menu->id}}">
-                    <input type="submit"class="btn-secondary" value="カートに入れる">
+                   
+                    <input type="submit"class="btn-secondary" value="予約リストへ">
                     
                   
                 </form>

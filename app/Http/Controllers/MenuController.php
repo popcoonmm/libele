@@ -7,16 +7,19 @@ use Illuminate\Support\Facades\HTML;
 use App\Menu;
 class MenuController extends Controller
 {
+   
+    
     public function index(Request $request)
     {
      
     $cond_item = $request->cond_item;
+    
         // $cond_title が空白でない場合は、記事を検索して取得する
         // if ($cond_item != '') {
         //     $menu = Menu::where('item', $cond_item).orderBy('updated_at', 'desc')->get();
         // } else {
         
-            $menu= Menu::all()->sortBy('updated_at');
+            $menus= Menu::all()->sortBy('updated_at');
         // }
 
         // if (count($menu) > 0) {
@@ -24,7 +27,7 @@ class MenuController extends Controller
         // } else {
         //     $headline = null;
         // }
-         return view('menu.index', [ 'menu' => $menu,'cond_item' => $cond_item]);
+         return view('menu.index', [ 'menus' => $menus,'cond_item' => $cond_item]);
       
     }
 }

@@ -7,11 +7,16 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
       <title>メニュー編集</title>
-  </head>   
-    <div class="container">
-        <div class="row">
+  </head>
+    <body>
+       <header>
+         <div class="container">
+           <div class="row">
             <h1 class="header-logo">Menu</h1>
-        </div>
+           </div>
+         </div>
+       </header>
+     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <a href="{{ action('Admin\MenuController@add') }}" role="button" class="btn-outline-dark";>Newmenu</a>
@@ -73,8 +78,6 @@
                 </div>
             </div>
         </div>
-                </div>
-            </main>
-        </div>
-    </body>
+    </div>
+  </body>
 </html>
