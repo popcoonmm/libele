@@ -23,7 +23,7 @@
         <h1>cake library</h1>
        
         <div class="btn-wrapper">
-          <a href="/" class="btn signup">welcom</a>
+          <a href="home" class="btn signup">welcom</a>
          
         </div>
       </div>

@@ -8,6 +8,10 @@ use App\Menu;
 class MenuController extends Controller
 {
    
+   public function home() 
+   {
+       return view('home.home');
+   }
     
     public function index(Request $request)
     {

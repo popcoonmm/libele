@@ -45,7 +45,7 @@
                         {{ str_limit($menu->description, 300) }}
                     </div>
                <form action="{{ action('ReserveController@create') }}" method="post" enctype="multipart/form-data">   
-                      <div class="form-item">個数</div>
+                      <div class="form-item">{{ $menu->quantity }}個数</div>
                        <select name="quantity">
                           <option value="0">選択してください</option>
                             <?php
@@ -53,7 +53,7 @@
                                  echo "<option value='{$i}'>{$i}</option>";
                                  }
                                  ?>
-                  </select>
+                       </select>
                    {{ csrf_field() }}
                    <!--IDのタグをPOSTで一緒に送るためのタグ-->
                    <input type="hidden" name="menu_id" value="{{$menu->id}}">

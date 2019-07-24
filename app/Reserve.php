@@ -11,11 +11,13 @@ class Reserve extends Model
     // 以下を追記
     public static $rules = array(
         'quantity' => 'required',
-       
+      // id	product_number	users_number	quantity	menu_id	item	price	description	created_at	updated_at
+
+
     );
-  protected $fillable = [
-    'menu_id','product number','users_number','quantity'
-    ];
+    // protected $fillable = [
+    //   'menu_id','product_number','price','item','users_number','quantity',
+    //   ];
     public function menu() {
       return $this->belongsTo('App\Menu');//belongsToは$menuから$reserveに入れることができる便利なやつ
     }

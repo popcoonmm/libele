@@ -23,7 +23,7 @@
                 <div class="row">
                     <table class="table table-outline-secondary">
                         <thead>
-                            <tr>
+                           <tr>
                                 <th width="5%">ID</th>
                                 <th width="15%">商品名</th>
                                 <th width="15%">値段</th>
@@ -37,8 +37,7 @@
       <!--左が全てのデータ(複数系)からひとつ（単数形）だけ取り出す-->
        @foreach($reserves as $reserve)
                         <tr>
-                    
-                                    <th>{{ $reserve->menu_id }}</th>
+                     <th>{{ $reserve->menu_id }}</th>
                                     <td>{{ $reserve->menu->item }}</td>
                                     <td>{{ $reserve->menu->price }}</td>
                                     <td>{{ $reserve->quantity }}</td>

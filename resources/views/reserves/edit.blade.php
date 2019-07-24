@@ -40,16 +40,15 @@
                           <form action="{{ action('ReserveController@update',['id' =>$reserve->id]) }}" method="post" enctype="multipart/form-data">   
                            <tr>
                     
-                                    <th>{{ $reserve->menu_id }}</th>
-                                    <td>{{ $reserve->item }}</td>
-                                    <td>{{ $reserve->price }}</td>
+                                
                                     <td><input type="text" class="form-control" name="quantity" value="{{ $reserve->quantity }}" </td>
+                                     <td>{{ $reserve->menu->description }}</td>
                                     <td><img src="{{ asset('storage/image/'.$reserve->menu->image_path) }}" width="50" height="50"></td>
                                     
                              <td>
                               
                                 <div>
-                                  <a href="{{ action('ReserveController@delete', ['id' =>$reserve->id]) }}" role="button" class="btn-secondary">キャンセル</a>
+                                  <a href="{{ action('ReserveController@delete', ['id' =>$reserve->id) }}" role="button" class="btn-secondary">キャンセル</a>
                                 </div>
                              </td>
                         
@@ -58,9 +57,9 @@
                     </table>
                          {{ csrf_field() }}
                    <!--IDのタグをPOSTで一緒に送るためのタグ-->
-                   <input type="hidden" name="menu_id" value="{{$reserve->menu->id}}">
+                   <input type="hidden" name="menu_id" value="{{ $reserve->menu->id }}">
                    
-                    <input type="submit"class="btn-secondary" value="予約リストへ">
+                    <input type="submit"class="btn-secondary" value="更新">
                     
                   
                 </form>

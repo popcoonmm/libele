@@ -28,14 +28,12 @@ Route::group(['prefix' => 'admin'], function() {
      
    
 });
-Route::get('/', 'MenuController@index');
+Route::get('/', 'MenuController@home');
+Route::get('home', 'MenuController@index');
 
 Route::get('reserves/index','ReserveController@index');
 Route::post('reserves/create','ReserveController@create');
 Route::get('reserves/edit','ReserveController@edit');
 Route::post('reserves/edit','ReserveController@update');
 Route::get('reserves/delete','ReserveController@delete');
-
-// Route::get('home','ReserveController@add');
-
 

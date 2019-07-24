@@ -15,15 +15,13 @@ class CreateReservesTable extends Migration
     {
         Schema::create('reserves', function (Blueprint $table) {
             $table->bigIncrements('id');//予約番号
-            $table->string('product number')->nullable();//商品番号
-            $table->string('users_number')->nullable(); //お客様番号
-            $table->string('quantity'); //個数
-            $table->string('menu_id'); //商品の処理番号
-            //追加
-            $table->string('item');
-            $table->string('price');
-            $table->string('description');
-        
+            $table->integer('product_number')->nullable();//商品番号
+            $table->integer('users_number')->nullable(); //お客様番号
+            $table->integer('quantity')->nullable(); //個数
+            $table->integer('menu_id')->nullable(); //商品の処理番号
+            $table->integer('price')->nullable();
+            $table->string('description')->nullable();
+            
             $table->timestamps();
         });
     }

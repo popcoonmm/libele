@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Reserve;
 class ReserveController extends Controller
@@ -17,17 +15,20 @@ class ReserveController extends Controller
      public function create(Request $request)
     {
       
-      
+      $this->validate($request,Reserve::$rules);
       $reserve = new Reserve;
       $form = $request->all();
       
       unset($form['_token']);
    
+    
       
       $reserve->fill($form);
-      $reserve->save();
       
-       return redirect('/');
+      
+      $reserve->save();
+       
+       return redirect('home');
     }
     
   public function edit(Request $request)

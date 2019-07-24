@@ -12,7 +12,7 @@ class Menu extends Model
     public static $rules = array(
         'item' => 'required',
         'price' => 'required',
-       // 'allergy' => 'required',
+       
         'description' => 'required',
     );
    public function allergies(){
