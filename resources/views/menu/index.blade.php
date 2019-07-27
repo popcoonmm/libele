@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="{{ secure_asset('js/app.js') }}" defer></script>
-    <!--<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">-->
-    <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
-      <title>メニュー</title>
-  </head>
-  <body>
+@extends（'layouts.app'）
+@section（'content'） 
     <header>
       <div class="container">
-        <div class="row">
           <h1 class="header-top">MENU</h1>
          <div class="header">
            <a href='reserves/index' class="reservation">予約リストへ</a>
@@ -23,7 +12,9 @@
     </header>
       <div class="menu-ground">
           @foreach($menus as $menu)
-          <div class="menu">
+          <div class="container menu">
+            <div class="row">
+              <div class="col-12 col-sm-6 col-md-4 border bg-primary">
           <div class="menu-image">
            @if ($menu->image_path)
             <img src="{{ secure_asset('storage/image/' . $menu->image_path) }}"class="aligncenter" style="width:100%;" />
@@ -45,7 +36,7 @@
                         {{ str_limit($menu->description, 300) }}
                     </div>
                <form action="{{ action('ReserveController@create') }}" method="post" enctype="multipart/form-data">   
-                      <div class="form-item">{{ $menu->quantity }}個数</div>
+                      <div class="form-item">{{ $menu->quantity }}注文数</div>
                        <select name="quantity">
                           <option value="0">選択してください</option>
                             <?php
@@ -61,10 +52,35 @@
                     <input type="submit"class="btn-secondary" value="予約リストへ">
                     
                   
-                </form>
-              </div>
+                  </form>
+                </div>
+             
+            </div>
           @endforeach
       </div>
-  </body>
-</html>
-                   
+
+  <footer>
+    <div class="container">
+      <div class_="row">
+          <a href='reserves/index' class="reservation">予約リストへ</a>
+           <a href='/' class="top">トップへ</a>
+                 <p> ---------------------------------- </p>
+                 
+      <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Map</h5>
+         <iframe src="https://maps.google.co.jp/maps?output=embed&q=渋谷駅"></iframe>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  </div>
+</div>
+
+          
+        </div>
+      </div>
+    </div>     
+  </footer>
+  @endsection

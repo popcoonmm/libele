@@ -44,14 +44,8 @@ class MenuController extends Controller
   }  
    public function index(Request $request)
   {
-      $cond_item = $request->cond_title;
-      if ($cond_item!= '') {
-          // 検索されたら検索結果を取得する
-          $menu = Menu::where('item', $cond_item)->get();
-      } else {
-          // それ以外はすべてのニュースを取得する
-          $menu = Menu::all();
-      }
+      $cond_item = $request->cond_item;
+      $menu = Menu::menu_search($cond_item);
 
       return view('admin.menu.index', ['menu' => $menu, 'cond_item' => $cond_item]);
   }

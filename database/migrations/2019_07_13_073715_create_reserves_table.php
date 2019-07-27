@@ -14,11 +14,12 @@ class CreateReservesTable extends Migration
     public function up()
     {
         Schema::create('reserves', function (Blueprint $table) {
-            $table->bigIncrements('id');//予約番号
-            $table->integer('product_number')->nullable();//商品番号
+            $table->increments('id');//予約番号
+            $table->integer('product_number')->nullable();//商品の処理番号
             $table->integer('users_number')->nullable(); //お客様番号
             $table->integer('quantity')->nullable(); //個数
-            $table->integer('menu_id')->nullable(); //商品の処理番号
+            $table->integer('menu_id')->unsigned(); //商品番号
+            $table->foreign('menu_id')->references('id')->on('menus');
             $table->integer('price')->nullable();
             $table->string('description')->nullable();
             

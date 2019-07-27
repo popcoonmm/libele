@@ -28,6 +28,8 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_item" value="{{ $cond_item }}">
                         </div>
+                        <!--$cond_item = Product::where('title', 'like', '%keyword%')->get();-->
+
                         <div class="col-md-2">
                             {{ csrf_field() }}
                             <input type="submit" class="btn-secondary " value="検索">

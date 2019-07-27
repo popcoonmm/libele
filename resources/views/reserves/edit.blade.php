@@ -37,18 +37,29 @@
                             </tr>
                         </thead>
                          <tbody>
+                             
                           <form action="{{ action('ReserveController@update',['id' =>$reserve->id]) }}" method="post" enctype="multipart/form-data">   
                            <tr>
-                    
-                                
-                                    <td><input type="text" class="form-control" name="quantity" value="{{ $reserve->quantity }}" </td>
-                                     <td>{{ $reserve->menu->description }}</td>
+                                    <td>{{ $reserve->id }}</td>
+                                   <td>{{ $reserve->menu->item }}</td>
+                                    <td>{{ $reserve->menu->price * $reserve->quantity  }}円</td>
+                                   
+                                    <td>
+                                       <select name="quantity">
+                          <option value="0">選択してください</option>
+                          
+                     
+                                   <!-- {{ Form::select("quantity",-->
+                                   <!--range(0,10),-->
+                                   <!--$reserve->quantity-->
+                                   <!-- ) }}-->
+                                   <!--  <td>{{ $reserve->menu->description }}</td>-->
                                     <td><img src="{{ asset('storage/image/'.$reserve->menu->image_path) }}" width="50" height="50"></td>
-                                    
+                                      </select>
                              <td>
                               
                                 <div>
-                                  <a href="{{ action('ReserveController@delete', ['id' =>$reserve->id) }}" role="button" class="btn-secondary">キャンセル</a>
+                                  <a href="{{ action('ReserveController@delete', ['id' =>$reserve->id]) }}" role="button" class="btn-secondary">キャンセル</a>
                                 </div>
                              </td>
                         

@@ -32,7 +32,7 @@
                         <div class="form-group row">
                         <lable class="col-md-2" for="price">値段</lable>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="price" value="{{ old('price') }}">
+                            <input type="number" class="form-control" name="price" value="{{ old('price') }}">
                         </div>
                     </div>
                     

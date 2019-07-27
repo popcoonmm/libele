@@ -36,4 +36,20 @@ class Menu extends Model
       $allergies = rtrim($allergies,$split_str);
       return $allergies;
    }
+   public static function menu_search($cond_item) 
+   {
+      if ($cond_item!= '') {
+          // 検索されたら検索結果を取得する
+          $menu = self::where('item','like',"%{$cond_item}%")->get();
+      } else {
+          
+          $menu = self::all();
+      }
+      return $menu;
+   }
+    public function reserves()
+    {
+        return $this->hasMany('App\Reserve');
+    }
+
 }
